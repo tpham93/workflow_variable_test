@@ -21,5 +21,12 @@ jobs:
         with:
           branch: gh-pages
           folder: test_folder
+          target-folder: latest
+          single-commit: true
+      - name: Deploy release documentation to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: test_folder
           target-folder: ${{steps.short_version.outputs.RELEASE_VERSION_SHORT}}
           single-commit: true
