@@ -14,6 +14,7 @@ jobs:
           RELEASE_VERSION=$(git ls-remote --tags --sort=-'v:refname' https://github.com/scikit-activeml/scikit-activeml.git | head -n 1 | cut --delimiter='/' --fields=3)
       - name: Get shortened version name
         run: |
+          RELEASE_VERSION=$(git ls-remote --tags --sort=-'v:refname' https://github.com/scikit-activeml/scikit-activeml.git | head -n 1 | cut --delimiter='/' --fields=3)
           RELEASE_VERSION_SHORT=$(echo $RELEASE_VERSION | sed -nr 's/([0-9]+\.[0-9]).[0-9]/\1/p')
           echo "RELEASE_VERSION_SHORT=${RELEASE_VERSION_SHORT}" >> "$GITHUB_OUTPUT"
           mkdir test_folder
